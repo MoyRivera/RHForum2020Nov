@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local 
+  gather_facts: no
+
+  tasks:
+  - name: Checking DB
+    uri: url=http://192.168.110.200/add_ip.php?ip={{ target }} return_content=yes
+    register: db
+
+  - name: Fail if OK is not returned
+    fail: 
+    when: "'OK' not in db.content"
+

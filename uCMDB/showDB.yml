@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local 
+  gather_facts: no
+
+  tasks:
+  - name: Checking DB
+    uri: url=http://192.168.110.200/index.php return_content=yes
+    register: db
+
+  - debug: msg={{ db.content }}
+

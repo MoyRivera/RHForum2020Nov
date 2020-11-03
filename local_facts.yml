@@ -1,0 +1,9 @@
+---
+- hosts: "{{ target }}"
+  gather_facts: yes
+
+  tasks:
+  - name: Setting local facts
+    set_fact: 
+      cacheable: yes
+      "{{ fact_name }}" : "{{ fact_value }}"

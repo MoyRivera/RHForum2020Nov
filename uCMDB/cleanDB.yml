@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local 
+  gather_facts: no
+
+  tasks:
+  - name: Cleaning DB
+    uri: url=http://192.168.110.200/clear.php

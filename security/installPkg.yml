@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: Installing pkg "{{ pkg }}"
+    yum:
+      name: "{{ pkg }}"
+      state: present
+
+  - name: Start the service 
+    shell: systemctl start "{{ service }}" 

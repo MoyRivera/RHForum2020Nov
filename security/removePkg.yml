@@ -1,0 +1,13 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: Stopping the service "{{ pkg }}"
+    shell: systemctl stop "{{ service }}" 
+
+  - name: Deleting pkg "{{ pkg }}"
+    yum:
+      name: "{{ pkg }}"
+      state: absent
+
